@@ -1,0 +1,32 @@
+{
+    "name": "MyADBlocker",
+    "version": "1.0",
+    "description": "A simple adblocker",
+    
+    "permissions": [
+        "tabs",
+        "webRequest", 
+        "webNavigation",
+        "webRequestBlocking", 
+        "http://*/", 
+        "https://*/",
+        "contextMenus",
+        "activeTab"],
+
+    "background": {
+        "scripts": ["blocked_domains.js", "background.js"]
+    },
+    "browser_action": {
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://*/*"],
+                "js": [
+                "content_script.js"
+            ]
+        }
+    ],
+
+    "manifest_version": 2
+}
