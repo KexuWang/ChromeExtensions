@@ -22,13 +22,13 @@ document.addEventListener("DOMContentLoaded", function() {
     
     var toggle_button = document.getElementById("toggle_button") ;
     toggle_button.addEventListener("click", function(){
-        alert("test toggle_button click function");
+        //alert("test toggle_button click function");
         background.enabled = !background.enabled;
         updateLabel();
     });
     
     var filter_button = document.getElementById("filter") ;
     filter_button.addEventListener("click", function(){
-        alert("test filter_button click function");
+       // alert("test filter_button click function");
     });
 });
