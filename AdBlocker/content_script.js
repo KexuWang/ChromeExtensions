@@ -7,6 +7,13 @@ function removeElementsByClass(className){
         elements[0].parentNode.removeChild(elements[0]);
     }
 }
+function removeElementsById(className){
+    console.log('removeElementsByClass'+className);
+    var elements = document.getElementsById(className);
+    while(elements.length > 0){
+        elements[0].parentNode.removeChild(elements[0]);
+    }
+}
 
 document.addEventListener("mousedown", function(event){
     console.log('event.target='+event.target);
