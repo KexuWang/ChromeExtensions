@@ -28,8 +28,30 @@ chrome.runtime.onMessage.addListener( function(message, sender, sendResponse){
     // message 是background.js 中的chrome.tabs.sendMessage发送过来的。
     if(message.onload){
         removeElementsByClass('ad-platform-tips');
+        removeElementsByHrefFilter();
     }
     else{
         clickedElement.remove();
     }
 });
+
+var FilterUrl= /.*:\/\/.*\.click\.taobao\.com\/.*/;
+function removeElementsByHrefFilter()
+{
+    var hyperlinks = document.getElementsByTagName('A');
+    var count = hyperlinks.length;
+    var i;
+    var found = false;
+    for ( i = 0; i < count; i++){
+        var hLink=decodeURIComponent(hyperlinks[i].href);
+        console.log("hyperlink:" + hLink);
+        if(FilterUrl.exec(hLink) != null)
+        {
+            console.log("remove element: "+hyperlinks[i].className);
+            removeElementsByClass(hyperlinks[i].className);
+            //下面的方法还是会触发点击事件
+            //hyperlinks[i].style.visibility = "hidden";
+            //hyperlinks[i].href="javascript:void(0);";
+        }
+    }
+}

@@ -3,6 +3,7 @@ var blocked_domains = [
 "*://*.blizzard.cn/*",
 "*://*.bnet.163.com/*",
 //filter ad in *.dalipan.com
+"*://*.click.taobao.com/*",
 "*://*.heygugu.com/*",
 "*://*.weizhenwx.com/*",
 "*://*.oodcd.cn/*",
